@@ -18,10 +18,10 @@ class datacontroller extends Controller
     	$a = data::find($id);
     	return $a;
     }
-    public function index()
+    public function index($nn)
     {
-    	$tampilan = data::all();
-    	return view('index', compact('tampilan'));   
+    	$tampilan = data::where('nama','like','%'.$nn.'%')->orwhere('jurusan','like','%'.$nn.'%')->get();
+    	return $tampilan;   
 
     }
     public function test3($data)
@@ -33,4 +33,5 @@ class datacontroller extends Controller
         return view('tugas', compact('haha'));   
 
     }
+
 }

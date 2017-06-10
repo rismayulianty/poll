@@ -18,7 +18,9 @@ Route::get('/', function () {
 //Data controller
 
 Route::get('test','datacontroller@test');
-Route::get('test2','datacontroller@index');
+Route::get('test2/{nama}','datacontroller@index');
 Route::get('test3/{tambah}','datacontroller@test3');
+
+Route::resource('post','PostController');
 
 
